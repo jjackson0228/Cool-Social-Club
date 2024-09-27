@@ -58,6 +58,10 @@ const thoughtSchema = new Schema(
   }
 );
 
+//Virtual property for reaction count
+thoughtSchema.virtual('reactionCount').get(function () {
+  return this.reactions.length; //Returns the length of the reactions array
+});
 // Create the Thought model
 const Thought = model('Thought', thoughtSchema);
 
