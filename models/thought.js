@@ -18,7 +18,8 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (timestamp) => new Date(timestamp).toLocaleString(),
+      get: (timestamp) => new Date(timestamp).toLocaleString(), //this getter should return a value from something like this ("createdAt": 1633024800000)
+      //into this format ("createdAt": "10/1/2021, 12:00:00 AM")
     },
   },
   {
