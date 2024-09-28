@@ -11,6 +11,14 @@ const users = [
     username: 'johnDoe',
     email: 'johndoe@example.com',
   },
+  {
+    username: 'longlegs',
+    email: 'longlegs@example.com',
+  },
+  {
+    username: 'dawgsfan',
+    email: 'ugafan@example.com',
+  },
 ];
 
 // Example data for thoughts
@@ -22,6 +30,14 @@ const thoughts = [
   {
     thoughtText: 'Learning MongoDB is fun!',
     username: 'johnDoe',
+  },
+  {
+    thoughtText: 'Its the birthday girl!',
+    username: 'longlegs',
+  },
+  {
+    thoughtText: 'GO DAWGS!',
+    username: 'dawgsfan',
   },
 ];
 
