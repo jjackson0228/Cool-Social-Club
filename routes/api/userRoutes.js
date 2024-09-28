@@ -1,5 +1,15 @@
 const router = require('express').Router();
-const User = require('../../models/user');
+const { User } = require('../../models/user');
+
+//GET all users
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find().populate('thoughts friends');
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //create a new user
 router.post('/', (req, res) => {
