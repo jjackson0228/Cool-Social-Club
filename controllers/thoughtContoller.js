@@ -1,4 +1,4 @@
-const { Thought } = require('../models/thought'); // Import the Thought model
+const { Thought, User } = require('../models'); // Import the Thought model
 
 // Get all thoughts
 const getAllThoughts = async (req, res) => {

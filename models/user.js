@@ -8,7 +8,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must match an email address!'], //might need to look up matching validation
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        'Must match an email address!',
+      ], //might need to look up matching validation
     },
     friends: [
       {
@@ -34,6 +37,13 @@ userSchema.virtual('friendCount').get(function () {
   return this.friends.length; //Returns the length of the friends array
 });
 
+userSchema.pre('findOneAndDelete', async function (next) {
+  const doc = await User.findOne(this.getQuery());
+  console.log(doc);
+  console.log(`Deleting thoughts by ${doc.username}`);
+  await Thought.deleteMany({ username: doc.username });
+  next();
+});
 //Create the User model
 const User = model('User', userSchema);
 
