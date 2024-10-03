@@ -1,5 +1,5 @@
-const connection = require('./config/connection'); // Connect to MongoDB
-const { User, Thought } = require('./models'); // Import your models
+const connection = require('../config/connection'); // Connect to MongoDB
+const { User, Thought } = require('../models'); // Import your models
 
 // Example data for users
 const users = [
